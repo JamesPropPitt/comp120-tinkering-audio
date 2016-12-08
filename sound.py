@@ -33,6 +33,7 @@ for i in range (0, 44100):
     frequency += 90
     for j in xrange (0, 1):
         values.append(data)
+
 # sound2 algorithm
 for i in range (0, 44100):
     sound2 = math.sin(2.0 * math.pi * frequency * (i / 44100.0)) * (0.5 * (2**15-1))
@@ -42,11 +43,14 @@ for i in range (0, 44100):
     for j in xrange (0, 1):
         values.append(data)
 
+#This function will increase the volume, two-fold.
+def increase_volume(values, length):
+   for i in xrange(length):
+      values[i] *= 2
 
+noise_output.close()
 sound2_str = ''.join(values)
 noise_a.writeframes(sound2_str)
 noise_a.close()
-sound1_str = ''.join(values)
-noise_b.writeframes(sound1_str)
-noise_b.close()
+
 

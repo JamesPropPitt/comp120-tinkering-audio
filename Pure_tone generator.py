@@ -24,4 +24,3 @@ for i in range(0, sampleLength):
    noise_output.writeframes(packed_value)
    noise_output.writeframes(packed_value)
 
-noise_output.close()
